@@ -27,35 +27,18 @@ with open(config['samples']) as infile:
     for line in infile:
         real_combos.append(line.strip().replace('\t', '/'))
 
-# ------------------------------------------------------------------------------
-# CONDITIONAL RULE ALL
-# ------------------------------------------------------------------------------
-
-myoutput = list()
-
-blast = "results/" + config['my_experiment'] + "_blast" + str(config['MLCA_identity']) + "_" + config['cluster_method'] + ".tsv",
-kraken2 = "results/" + config['my_experiment'] + "_kraken2_conf" + str(config['kraken2_confidence']).split('.')[1] + "_" + config['cluster_method'] + ".tsv"
-
-if config["analysis_method"] == "blast" or config["analysis_method"] == "both":
-    myoutput.append(blast)
-
-if config["analysis_method"] == "kraken2" or config["analysis_method"] == "both":
-    myoutput.append(kraken2)
-
-rule all:
-    input:
-        myoutput
 
 # ------------------------------------------------------------------------------
-# INCLUCE CONDITIONAL RULE FILES
+# INCLUDED RULE FILES
+# use config/config.yaml to configure
 # ------------------------------------------------------------------------------
 
 include: "rules/qc.smk"
 include: "rules/lca.smk"
 include: "rules/vsearch.smk"
 
-if config["analysis_method"] == "blast" or config["analysis_method"] == "both":
+if config["blast_analysis"] == "TRUE":
     include: "rules/blast.smk"
 
-if config["analysis_method"] == "kraken2" or config["analysis_method"] == "both":
+if config["kraken_analysis"] == "TRUE":
     include: "rules/kraken2.smk"

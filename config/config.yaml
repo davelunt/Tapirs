@@ -23,6 +23,13 @@ input_data: "resources/libraries"
 # should contain a library directory containing your
 # demultiplexed R1/R2.fastq.gz sample files for analysis
 
+# -----------------------------------------------
+# Activate/Deactive analyses here with TRUE/FALSE
+# -----------------------------------------------
+
+blast_analysis = TRUE
+kraken_analysis = TRUE
+
 #-------------------------------------------------------------------------------
 # DATABASE LOCATIONS
 #-------------------------------------------------------------------------------
