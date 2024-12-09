@@ -1,6 +1,6 @@
 # ==============================================================================
-# TAPIRS
-# A reproducible metabarcoding workflow using snakemake
+# nanoTAPIRS
+# A reproducible ONT metabarcoding workflow using snakemake
 # ==============================================================================
 
 configfile: "config/config.yaml"
@@ -34,11 +34,11 @@ with open(config['samples']) as infile:
 # ------------------------------------------------------------------------------
 
 include: "rules/qc.smk"
-include: "rules/lca.smk"
-include: "rules/vsearch.smk"
+# include: "rules/vsearch.smk"
 
 if config["blast_analysis"] == "TRUE":
-    include: "rules/blast.smk"
+    include: "rules/blast.smk",
+    include: "rules/lca.smk",
 
 if config["kraken_analysis"] == "TRUE":
     include: "rules/kraken2.smk"

@@ -3,11 +3,11 @@
 [![Snakemake](https://img.shields.io/badge/snakemake-≥5.7.0-brightgreen.svg)](https://snakemake.bitbucket.io)
 [![Build Status](https://travis-ci.org/snakemake-workflows/cc_tapirs.svg?branch=master)](https://travis-ci.org/snakemake-workflows/cc_tapirs)
 
-Tapirs is a reproducible modular workflow for the analysis of DNA metabarcoding data.
+nanoTapirs is a reproducible modular workflow for the analysis of DNA metabarcoding data. It is focussed on, but not restricted to, the analysis of ONT data.
 
-Tapirs uses the [Snakemake workflow manager](https://snakemake.github.io/) and is compartmentalised into several modules, each performing a step of the workflow. Tapirs is designed to be experimental, allowing you to test the effect of different approaches to data analysis. Tapirs is curently v1.0. It is simple, robust, and reliable in our hands, but not all features are yet present.
+nanoTapirs uses the [Snakemake workflow manager](https://snakemake.github.io/) and is compartmentalised into several modules, each performing a step of the workflow. nanoTapirs is designed to be experimental, allowing you to test the effect of different approaches to data analysis. 
 
-Tapirs was created by the EvoHull group, at the University of Hull, UK
+nanoTapirs was created in the EvoHull group, at the University of Hull, UK.
 
 Detailed instructions for installation, setup, and modification are contained within the [Tapirs documentation](https://tapirs.readthedocs.io)
 
@@ -15,12 +15,12 @@ Detailed instructions for installation, setup, and modification are contained wi
 
 1. Install [conda](https://docs.conda.io/projects/conda/en/latest/user-guide/install/) (miniconda)
 2. Install [git](https://github.com/git-guides/install-git)
-3. Clone the Tapirs repository, and relocate there
-    * `git clone https://github.com/EvoHull/Tapirs`
-    * `cd Tapirs`
+3. Clone the nanoTapirs repository, and relocate there
+    * `git clone https://github.com/davelunt/nanoTapirs`
+    * `cd nanoTapirs`
 4. Create an environment with snakemake and other software for the workflow
     * `conda env create -f workflow/envs/env.yaml`
-    * `conda activate tapirs`
+    * `conda activate nanotapirs`
 5. Download taxonomy
     * `wget ftp://ftp.ncbi.nih.gov/pub/taxonomy/new_taxdump/new_taxdump.zip`
     * `unzip new_taxdump.zip -d resources/databases/new_taxdump`
@@ -31,7 +31,7 @@ Detailed instructions for installation, setup, and modification are contained wi
 9. Dry run `snakemake -npr` to identify any issues
 10. Run `snakemake --cores 4` (you can run all available cores with `snakemake --cores`)
 
-## Configuring the Tapirs workflow
+## Configuring the nanoTapirs workflow
 
 You should adjust `config/config.yaml` to specify the location of relevant files (reference databases and sequence data to be analysed) and parameters for the analysis (experiment name, sample sheet name, amplicon/primer lengths, analysis methods etc.). Defaults are present and are set for the test data set: Hull_test.
 
@@ -49,9 +49,6 @@ EvoHull group, University of Hull, UK
 
 * Dave Lunt (@davelunt)
 * Graham Sellers (@Graham-Sellers)
-* Michael R Winter (@mrmrwinter)
-* Merideth Freiheit (@merfre)
-* Marco Benucci
 
 ----
 
